@@ -1,4 +1,4 @@
 # kegri.github.io
 Kişisel Anasayfam.
-Bu anasayfa @AlexFlipnote kullanıcısından alıntıdır.
-https://github.com/AlexFlipnote/alexflipnote.github.io
+
+Lütfen bu sayfayı kopyalamayın ve kendi adınıza kullanmayın. Şu an bu durumlar için hazır değil ama kullanmak isterseniz de bir destek beklemeyin.
