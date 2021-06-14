@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta name="description" content="Kegrine's personal portfolio.">
+    <meta name="author" content="Kegrine">
+    <meta name="keywords" content="personal, kegrine, portfolio, website" />
+    <meta name="subject" content="My personal website.">
+    <meta name="language" content="TR">
+    <meta name="robots" content="index" />
+    <meta name="owner" content="Kegrine">
+    <meta name="url" content="http://www.kegri.wtf">
+    <meta name="identifier-URL" content="http://kegri.wtf">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ｋｅｇｒｉｎｅ.</title>
+    <link rel="stylesheet" href="vtwindow.css">
+    <link rel="stylesheet" href="vtwindow-theme.material.css">
+    <link rel="stylesheet" href="vtwindow-theme.osx.css">
+    <script src="build/vtwindow.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        #wallpaper {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+
+            background-image: url(background.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        .lds-roller {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+
+        .lds-roller div {
+            animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+            transform-origin: 40px 40px;
+        }
+
+        .lds-roller div:after {
+            content: " ";
+            display: block;
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #fff;
+            margin: -4px 0 0 -4px;
+        }
+
+        .lds-roller div:nth-child(1) {
+            animation-delay: -0.036s;
+        }
+
+        .lds-roller div:nth-child(1):after {
+            top: 63px;
+            left: 63px;
+        }
+
+        .lds-roller div:nth-child(2) {
+            animation-delay: -0.072s;
+        }
+
+        .lds-roller div:nth-child(2):after {
+            top: 68px;
+            left: 56px;
+        }
+
+        .lds-roller div:nth-child(3) {
+            animation-delay: -0.108s;
+        }
+
+        .lds-roller div:nth-child(3):after {
+            top: 71px;
+            left: 48px;
+        }
+
+        .lds-roller div:nth-child(4) {
+            animation-delay: -0.144s;
+        }
+
+        .lds-roller div:nth-child(4):after {
+            top: 72px;
+            left: 40px;
+        }
+
+        .lds-roller div:nth-child(5) {
+            animation-delay: -0.18s;
+        }
+
+        .lds-roller div:nth-child(5):after {
+            top: 71px;
+            left: 32px;
+        }
+
+        .lds-roller div:nth-child(6) {
+            animation-delay: -0.216s;
+        }
+
+        .lds-roller div:nth-child(6):after {
+            top: 68px;
+            left: 24px;
+        }
+
+        .lds-roller div:nth-child(7) {
+            animation-delay: -0.252s;
+        }
+
+        .lds-roller div:nth-child(7):after {
+            top: 63px;
+            left: 17px;
+        }
+
+        .lds-roller div:nth-child(8) {
+            animation-delay: -0.288s;
+        }
+
+        .lds-roller div:nth-child(8):after {
+            top: 56px;
+            left: 12px;
+        }
+
+        @keyframes lds-roller {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="wallpaper"></div>
+
+    <template id="m">
+        <div role="dialog" aria-label="" class="vt-window-material">
+            <div name="header" class="valign-wrapper indigo">
+                <span name="title">${content.title}</span>
+                <span name="controls">
+                    <button name="popout" class="btn-flat" title="Deattatch"><i
+                            class="material-icons">launch</i></button>
+                    <button name="minimize" class="btn-flat" title="Minimize"><i
+                            class="material-icons">remove</i></button>
+                    <button name="maximize" class="btn-flat" title="Maximize"><i
+                            class="material-icons">zoom_out_map</i></button>
+                    <button name="close" class="btn-flat" title="Close"><i class="material-icons">close</i></button>
+                </span>
+            </div>
+            <div name="body">
+                ${content.body}
+                <input type="text">
+            </div>
+            <div name="footer">
+                <div name="grab"></div>
+            </div>
+        </div>
+    </template>
+
+    <template id="osx">
+        <div role="dialog" aria-label="" class="vt-window-osx">
+            <div name="header" class="">
+                <span name="title">${content.title}</span>
+                <span name="controls">
+                    <button name="close" class="" title="Close"></button>
+                    <button name="minimize" class="" title="Minimize"></button>
+                    <button name="maximize" class="" title="Maximize"></button>
+                    <button name="popout" class="" title="Deattatch"></button>
+                </span>
+            </div>
+            <div name="body">
+                ${content.body}
+                <input type="text">
+            </div>
+            <div name="footer">
+                <div name="grab"></div>
+            </div>
+        </div>
+    </template>
+
+    <!-- <img src="osx.png" style="outline: 1px solid">
+        <img src="osx2.png" style="outline: 1px solid">
+    -->
+
+    <script>
+
+        var default1 = "Ｋｅｇｒｉｎｅ."; // Genel başlık
+        var text1 = "ｗｅｌｃｏｍｅ"; // 1. Yazı
+        var text2 = "ｔｏ"; // 2. Yazı
+        var text3 = "ｍｙ"; // 3. Yazı
+        var text4 = "ｗｅｂｓｉｔｅ"; // 4. Yazı
+        var changeRate = 2000; // Zaman ayarı [1000 = 1 Saniye]
+        var messageNumber = 0;
+
+        function changeStatus() {
+            if (messageNumber == 0) {
+                window.status = default1;
+                document.title = default1;
+            }
+            else if (messageNumber == 1) {
+                window.status = text1;
+                document.title = text1;
+            }
+            else if (messageNumber == 2) {
+                window.status = text2;
+                document.title = text2;
+            }
+            else if (messageNumber == 3) {
+                window.status = text3;
+                document.title = text3;
+            }
+            else if (messageNumber == 4) {
+                window.status = text4;
+                document.title = text4;
+                messageNumber = 0;
+            }
+
+            messageNumber++;
+            setTimeout("changeStatus();", changeRate);
+
+        }
+
+        changeStatus();
+
+        var w5 = new VtWindow(null, { template: osx.innerHTML, resizable: true, maximizable: true });
+        w5.setTitle('Hoş geldin!');
+        w5.setBody(`<div style="padding: 10px; text-align: center; width: 100%;"><h4>bence buraya tıklamamalısın.</h4><a href="http://web.archive.org/web/20180308043334/herobrine.com/"><p>ya da istiyorsan tıkla. sen bilirsin.</p></a> hi <a href="https://screamer.wiki/">screamer.wiki</a> i love u.</div>`);
+        w5.top = 600;
+        w5.left = 900;
+        w5.width = 450;
+        w5.height = 300;
+
+        var w2 = new VtWindow(null, { template: osx.innerHTML, resizable: true, maximizable: true });
+        w2.setTitle('Hoş geldin!');
+        w2.setBody(`<div style="padding: 10px; text-align: center; width: 100%;"><h4>Nabersin?</h4><p>Benim adım Çağrı. İnternet beni Kegrine olarak tanır.</p><br>4 yıldır kodlama ile uğraşıyorum. Evet 4 yıldır, ve hala internet siteleri nasıl yapılır bilmiyorum.<br></div>`);
+        w2.top = 400;
+        w2.left = 45;
+        w2.width = 620;
+        w2.height = 320;
+
+        var w1 = new VtWindow(null, { template: osx.innerHTML, resizable: true, maximizable: true });
+        w1.setTitle('Hoş geldin!');
+        w1.setBody(`<div style="padding: 10px; text-align: center; width: 100%;"><h4>Bana ulaşmak mı istiyorsun?</h4><p>Beni Instagram üzerinden takip edin. <a href='https://instagram.com/k3gri'>instagr.am/k3gri</a><br>
+      ya da Discord üzerinden ekleyin: Kegrine.#0777 <a href='https://dsc.bio/kegrine'>Discord profilime göz atmak isterseniz!</a><br>
+      eğer bunlardan hiçbirini kullanmıyorsanız beni IMVU üzerinden arkadaş ekleyin! Iucifer!<br><br></p><br><br></div>`);
+        w1.top = 5;
+        w1.left = 800;
+        w1.width = 620;
+        w1.height = 320;
+
+        console.log('Type w1\n\nyou can set the position by setting w1.top=0\n', w1);
+
+
+        var w3 = new VtWindow(null, { template: osx.innerHTML, preserveFocusOrder: false });
+        w3.setTitle('Şuna bir bak.');
+        w3.setBody(`<iframe width="100%" height="100%" src="https://www.youtube.com/embed/YcEHXb1xhRg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="position:absolute;"></iframe>`);
+        w3.top = 5;
+        w3.left = 400;
+        w3.width = 320;
+        w3.height = 250;
+
+
+        var w4 = new VtWindow(null, { template: osx.innerHTML, preserveFocusOrder: false });
+        w4.setTitle('En sevdiğim şarkı.');
+        w4.setBody(`<iframe src="https://open.spotify.com/embed/track/2aeg9TfKdiXE7KHwbvWdbW" width="100%" height="100%" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
+        w4.top = 55;
+        w4.left = 5;
+        w4.width = 320;
+        w4.height = 250;
+
+
+        w1.mount();
+        w2.mount();
+        w3.mount();
+        w4.mount();
+        w5.mount();
+        w1.focus();
+
+
+        let instances = [];
+
+        function openAlot() {
+
+            const x = 50 + (Math.random() * 400);
+            const y = 50 + (Math.random() * 400);
+
+            for (let i = 0; i < 100; i++) {
+
+                let w1 = new VtWindow({ title: 'VtWindow OSX', body: `<div style="padding: 10px; text-align: center; width: 100%;"><h4>Hello World!</h4> <h1>${instances.length}</h1> </div>` }, { template: osx.innerHTML, top: y + (8 * i), left: x + (20 * i), width: 300, height: 300 });
+                instances.push(w1);
+
+                w1.mount();
+
+            }
+        }
+
+        function closeAll() {
+            for (let i = 0; i < instances.length; i++) {
+                if (instances[i].isMounted) instances[i].unmount();
+                instances[i].destroy();
+                delete instances[i];
+            }
+            instances = [];
+        }
+
+    </script>
+</body>
+
+</html>
