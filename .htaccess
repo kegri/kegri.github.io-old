@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^www\.kegri\.wtf
+RewriteRule (.*) http://www.kegri.wtf/$1 [R=301,L]
